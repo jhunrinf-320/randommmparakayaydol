@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -59,7 +58,7 @@ button {
 main {
   position: relative;
   z-index: 1;
-  width: min(100% - 32px, 980px);
+  width: min(calc(100% - 32px), 980px);
   margin: auto;
 }
 
@@ -1034,9 +1033,8 @@ h1 em, h2 em {
 /* MOBILE */
 
 @media (max-width: 600px) {
-
   main {
-    width: min(100% - 22px, 980px);
+    width: min(calc(100% - 22px), 980px);
   }
 
   .intro {
