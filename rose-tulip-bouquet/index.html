@@ -1,29 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff0f4">
+  <meta name="description" content="A little bouquet of roses, tulips, and love, made just for you.">
+
   <title>A Little Bouquet for You 🌷</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
 
-  <div class="ambient"></div>
-  <div id="particle-layer" class="particle-layer"></div>
+  <!-- Background -->
+  <div class="ambient" aria-hidden="true"></div>
+  <div id="particle-layer" class="particle-layer" aria-hidden="true"></div>
 
   <main>
 
     <!-- OPENING GIFT -->
     <section class="intro" id="intro">
 
-      <div class="intro-sparkle sparkle-a">✦</div>
-      <div class="intro-sparkle sparkle-b">✧</div>
+      <div class="intro-sparkle sparkle-a" aria-hidden="true">✦</div>
+      <div class="intro-sparkle sparkle-b" aria-hidden="true">✧</div>
 
       <p class="eyebrow">A tiny surprise, made with love</p>
 
@@ -36,11 +42,16 @@
         A little gift, a little garden, and a whole lot of affection.
       </p>
 
-      <button class="gift-button" id="open-gift">
+      <button
+        class="gift-button"
+        id="open-gift"
+        type="button"
+        aria-label="Open your surprise gift"
+      >
 
-        <span class="gift-glow"></span>
+        <span class="gift-glow" aria-hidden="true"></span>
 
-        <span class="gift-box">
+        <span class="gift-box" aria-hidden="true">
 
           <span class="gift-lid"><i></i></span>
 
@@ -68,6 +79,7 @@
     <!-- MAIN WEBSITE -->
     <section class="reveal-content" id="reveal-content" hidden>
 
+      <!-- HERO -->
       <header class="hero">
 
         <p class="eyebrow">Picked just for you</p>
@@ -85,77 +97,92 @@
 
 
       <!-- ANIMATED BOUQUET -->
-      <section class="bouquet-card">
+      <section class="bouquet-card" aria-label="Animated rose and tulip bouquet">
 
-        <div class="glow-orb orb-one"></div>
-        <div class="glow-orb orb-two"></div>
+        <div class="glow-orb orb-one" aria-hidden="true"></div>
+        <div class="glow-orb orb-two" aria-hidden="true"></div>
 
         <div class="bouquet-scene">
 
           <div class="bouquet" id="bouquet">
 
+            <!-- ROSE 1 -->
             <div class="flower flower-rose rose-one">
               <div class="stem"></div>
               <div class="leaf leaf-left"></div>
               <div class="leaf leaf-right"></div>
+
               <div class="bloom rose-bloom">
                 <i></i><i></i><i></i><i></i>
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- TULIP 1 -->
             <div class="flower flower-tulip tulip-one">
               <div class="stem"></div>
               <div class="leaf leaf-left"></div>
+
               <div class="bloom tulip-bloom">
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- ROSE 2 -->
             <div class="flower flower-rose rose-two">
               <div class="stem"></div>
               <div class="leaf leaf-right"></div>
+
               <div class="bloom rose-bloom">
                 <i></i><i></i><i></i><i></i>
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- TULIP 2 -->
             <div class="flower flower-tulip tulip-two">
               <div class="stem"></div>
               <div class="leaf leaf-left"></div>
+
               <div class="bloom tulip-bloom">
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- ROSE 3 -->
             <div class="flower flower-rose rose-three">
               <div class="stem"></div>
               <div class="leaf leaf-left"></div>
               <div class="leaf leaf-right"></div>
+
               <div class="bloom rose-bloom">
                 <i></i><i></i><i></i><i></i>
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- TULIP 3 -->
             <div class="flower flower-tulip tulip-three">
               <div class="stem"></div>
               <div class="leaf leaf-right"></div>
+
               <div class="bloom tulip-bloom">
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- ROSE 4 -->
             <div class="flower flower-rose rose-four">
               <div class="stem"></div>
               <div class="leaf leaf-left"></div>
+
               <div class="bloom rose-bloom">
                 <i></i><i></i><i></i><i></i>
                 <i></i><i></i><i></i>
               </div>
             </div>
 
+            <!-- BOUQUET WRAPPER -->
             <div class="bouquet-wrap">
               <span class="wrap-fold"></span>
               <span class="wrap-ribbon"></span>
@@ -170,13 +197,14 @@
           A forever kind of little bloom <span>♡</span>
         </p>
 
+        <!-- BOUQUET BUTTONS -->
         <div class="bouquet-actions">
 
-          <button class="soft-button" id="bloom-button">
+          <button class="soft-button" id="bloom-button" type="button">
             Make it bloom ✿
           </button>
 
-          <button class="soft-button" id="heart-button">
+          <button class="soft-button" id="heart-button" type="button">
             Send a heart ♡
           </button>
 
@@ -201,8 +229,14 @@
 
         <div class="envelope-wrap">
 
-          <button class="envelope" id="letter-button"
-            aria-expanded="false" aria-controls="letter">
+          <button
+            class="envelope"
+            id="letter-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="letter"
+            aria-label="Open your love letter"
+          >
 
             <span class="envelope-back"></span>
 
@@ -222,6 +256,7 @@
 
         </div>
 
+        <!-- LETTER CONTENT -->
         <article class="letter" id="letter" hidden>
 
           <p class="letter-date">A little note, just because</p>
@@ -246,7 +281,7 @@
             With lots of love, <span>♡</span>
           </p>
 
-          <button class="text-button" id="close-letter">
+          <button class="text-button" id="close-letter" type="button">
             Fold the letter
           </button>
 
@@ -255,17 +290,21 @@
       </section>
 
 
-      <!-- MUSIC -->
+      <!-- MUSIC AND FOOTER -->
       <footer class="footer">
 
-        <button class="music-button" id="music-button"
-          aria-pressed="false">
+        <button
+          class="music-button"
+          id="music-button"
+          type="button"
+          aria-pressed="false"
+        >
 
           <span class="music-icon">♫</span>
 
           <span id="music-label">Play a little melody</span>
 
-          <span class="music-bars">
+          <span class="music-bars" aria-hidden="true">
             <i></i><i></i><i></i>
           </span>
 
@@ -275,7 +314,7 @@
           Made of petals, pixels, and affection <span>♡</span>
         </p>
 
-        <button class="restart-button" id="restart-button">
+        <button class="restart-button" id="restart-button" type="button">
           Replay the surprise ↺
         </button>
 
@@ -285,8 +324,8 @@
 
   </main>
 
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="./script.js"></script>
 
 </body>
 </html>
-
