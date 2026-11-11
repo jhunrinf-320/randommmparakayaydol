@@ -1,336 +1,317 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff0f4">
+  <title>A Little Bouquet for You 🌷</title>
+  <meta name="description" content="A little interactive garden of roses, tulips, and love.">
 
-    <meta name="theme-color" content="#fff0f5">
-    <meta name="description" content="A romantic animated rose and tulip bouquet surprise.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
-    <title>Rose & Tulip Bouquet 🌹🌷</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- Website CSS -->
-    <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
 
-    <!-- Floating hearts and flower petals -->
-    <div id="particle-layer" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div id="particle-layer" class="particle-layer" aria-hidden="true"></div>
 
-    <!-- Main introduction -->
-    <main>
+  <main>
 
-        <section id="intro" class="intro">
+    <!-- INTRODUCTION AND GIFT -->
+    <section class="intro" id="intro">
 
-            <div class="intro-content">
+      <div class="intro-sparkle sparkle-a">✦</div>
+      <div class="intro-sparkle sparkle-b">✧</div>
 
-                <p class="small-title">A LITTLE SURPRISE FOR YOU</p>
+      <p class="eyebrow">A tiny surprise, made with love</p>
 
-                <h1>
-                    Something Special
-                    <span>is Waiting for You</span>
-                </h1>
+      <h1>
+        Something lovely<br>
+        <em>is waiting for you.</em>
+      </h1>
 
-                <p class="intro-description">
-                    I prepared something beautiful just for you.
-                    Open your little surprise! ♡
-                </p>
+      <p class="intro-copy">
+        A little gift, a little garden, and a whole lot of affection.
+      </p>
 
-                <!-- Surprise Gift Box -->
-                <div class="gift-container">
+      <button class="gift-button" id="open-gift" aria-label="Open your surprise gift">
 
-                    <div class="gift-box" id="gift-box">
+        <span class="gift-glow"></span>
 
-                        <div class="gift-lid">
-                            <div class="gift-bow"></div>
-                        </div>
+        <span class="gift-box" aria-hidden="true">
 
-                        <div class="gift-body">
-                            <div class="gift-ribbon"></div>
-                        </div>
+          <span class="gift-lid"><i></i></span>
 
-                    </div>
+          <span class="gift-body">
+            <i class="ribbon-vertical"></i>
+            <i class="ribbon-horizontal"></i>
+          </span>
 
-                </div>
+          <span class="gift-bow">
+            <i></i>
+            <b></b>
+          </span>
 
-                <button
-                    id="open-gift"
-                    class="primary-button"
-                    type="button"
-                >
-                    Open Your Surprise ♡
-                </button>
+        </span>
 
-                <p class="hint-text">
-                    Tap the button to reveal your surprise.
-                </p>
+        <span class="gift-hint">Tap to open your gift</span>
 
+      </button>
+
+      <p class="tiny-note">
+        Best opened with a little moment to spare ♡
+      </p>
+
+    </section>
+
+
+    <!-- SURPRISE REVEAL -->
+    <section class="reveal-content" id="reveal-content" hidden>
+
+      <header class="hero">
+
+        <p class="eyebrow">Picked just for you</p>
+
+        <h2>
+          A bouquet of <em>little joys.</em>
+        </h2>
+
+        <p class="hero-copy">
+          Roses for the warmth, tulips for the smiles,
+          and petals for every lovely thought.
+        </p>
+
+      </header>
+
+
+      <!-- ANIMATED FLOWER BOUQUET -->
+      <section class="bouquet-card" aria-label="Animated bouquet of roses and tulips">
+
+        <div class="glow-orb orb-one"></div>
+        <div class="glow-orb orb-two"></div>
+
+        <div class="bouquet-scene">
+
+          <div class="bouquet" id="bouquet">
+
+            <!-- ROSE ONE -->
+            <div class="flower flower-rose rose-one">
+              <div class="stem"></div>
+              <div class="leaf leaf-left"></div>
+              <div class="leaf leaf-right"></div>
+              <div class="bloom rose-bloom">
+                <i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i>
+              </div>
             </div>
 
-        </section>
+            <!-- TULIP ONE -->
+            <div class="flower flower-tulip tulip-one">
+              <div class="stem"></div>
+              <div class="leaf leaf-left"></div>
+              <div class="bloom tulip-bloom">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- ROSE TWO -->
+            <div class="flower flower-rose rose-two">
+              <div class="stem"></div>
+              <div class="leaf leaf-right"></div>
+              <div class="bloom rose-bloom">
+                <i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- TULIP TWO -->
+            <div class="flower flower-tulip tulip-two">
+              <div class="stem"></div>
+              <div class="leaf leaf-left"></div>
+              <div class="bloom tulip-bloom">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- ROSE THREE -->
+            <div class="flower flower-rose rose-three">
+              <div class="stem"></div>
+              <div class="leaf leaf-left"></div>
+              <div class="leaf leaf-right"></div>
+              <div class="bloom rose-bloom">
+                <i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- TULIP THREE -->
+            <div class="flower flower-tulip tulip-three">
+              <div class="stem"></div>
+              <div class="leaf leaf-right"></div>
+              <div class="bloom tulip-bloom">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- ROSE FOUR -->
+            <div class="flower flower-rose rose-four">
+              <div class="stem"></div>
+              <div class="leaf leaf-left"></div>
+              <div class="bloom rose-bloom">
+                <i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <!-- BOUQUET WRAPPING -->
+            <div class="bouquet-wrap">
+              <span class="wrap-fold"></span>
+              <span class="wrap-ribbon"></span>
+              <span class="wrap-knot"></span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="bouquet-caption">
+          A forever kind of little bloom <span>♡</span>
+        </p>
+
+        <div class="bouquet-actions">
+
+          <button class="soft-button" id="bloom-button">
+            Make it bloom ✿
+          </button>
+
+          <button class="soft-button" id="heart-button">
+            Send a heart ♡
+          </button>
+
+        </div>
+
+      </section>
 
 
-        <!-- Hidden surprise content -->
-        <section
-            id="reveal-content"
-            class="reveal-content"
-            hidden
-            aria-live="polite"
+      <!-- LOVE LETTER -->
+      <section class="letter-section">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">A note from the heart</p>
+
+          <h2>
+            Something I wanted<br>
+            <em>you to read.</em>
+          </h2>
+
+        </div>
+
+        <div class="envelope-wrap">
+
+          <button
+            class="envelope"
+            id="letter-button"
+            aria-expanded="false"
+            aria-controls="letter"
+            type="button"
+          >
+
+            <span class="envelope-back"></span>
+
+            <span class="letter-paper">
+              <span>For you, with love ♡</span>
+            </span>
+
+            <span class="envelope-front"></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-seal">♥</span>
+
+          </button>
+
+          <p class="envelope-hint" id="envelope-hint">
+            Tap the envelope to open your letter
+          </p>
+
+        </div>
+
+        <article class="letter" id="letter" hidden>
+
+          <p class="letter-date">
+            A little note, just because
+          </p>
+
+          <h3>Dear you,</h3>
+
+          <p>
+            Some things are better said with flowers.
+            So here are a few roses, a few tulips,
+            and a reminder that you make ordinary days
+            feel a little more special.
+          </p>
+
+          <p>
+            I hope this little corner of the internet
+            brings you a smile. May your days be soft,
+            your heart be light, and your life keep
+            finding reasons to bloom.
+          </p>
+
+          <p class="signature">
+            With lots of love, <span>♡</span>
+          </p>
+
+          <button class="text-button" id="close-letter" type="button">
+            Fold the letter
+          </button>
+
+        </article>
+
+      </section>
+
+
+      <!-- MUSIC AND FOOTER -->
+      <footer class="footer">
+
+        <button
+          class="music-button"
+          id="music-button"
+          aria-pressed="false"
+          type="button"
         >
 
-            <!-- Bouquet Section -->
-            <div class="bouquet-section">
+          <span class="music-icon">♫</span>
 
-                <p class="small-title">
-                    MADE WITH LOVE
-                </p>
+          <span id="music-label">
+            Play a little melody
+          </span>
 
-                <h2>
-                    A Bouquet Just for You
-                    <span>🌹🌷</span>
-                </h2>
+          <span class="music-bars" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </span>
 
-                <p class="bouquet-description">
-                    Roses for your beauty, tulips for your happiness,
-                    and love in every little detail.
-                </p>
+        </button>
 
+        <p>
+          Made of petals, pixels, and affection <span>♡</span>
+        </p>
 
-                <!-- Animated Bouquet -->
-                <div id="bouquet" class="bouquet">
+        <button class="restart-button" id="restart-button" type="button">
+          Replay the surprise ↺
+        </button>
 
-                    <div class="bouquet-wrapper">
+      </footer>
 
-                        <!-- Flowers -->
-                        <div class="flowers">
+    </section>
 
-                            <!-- Rose 1 -->
-                            <div class="flower rose rose-one">
-                                <div class="flower-stem"></div>
-                                <div class="flower-head">
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="flower-center"></span>
-                                </div>
-                            </div>
+  </main>
 
-                            <!-- Rose 2 -->
-                            <div class="flower rose rose-two">
-                                <div class="flower-stem"></div>
-                                <div class="flower-head">
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="flower-center"></span>
-                                </div>
-                            </div>
-
-                            <!-- Rose 3 -->
-                            <div class="flower rose rose-three">
-                                <div class="flower-stem"></div>
-                                <div class="flower-head">
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="petal"></span>
-                                    <span class="flower-center"></span>
-                                </div>
-                            </div>
-
-                            <!-- Tulip 1 -->
-                            <div class="flower tulip tulip-one">
-                                <div class="flower-stem"></div>
-                                <div class="tulip-head">
-                                    <span class="tulip-petal"></span>
-                                    <span class="tulip-petal"></span>
-                                    <span class="tulip-petal"></span>
-                                </div>
-                            </div>
-
-                            <!-- Tulip 2 -->
-                            <div class="flower tulip tulip-two">
-                                <div class="flower-stem"></div>
-                                <div class="tulip-head">
-                                    <span class="tulip-petal"></span>
-                                    <span class="tulip-petal"></span>
-                                    <span class="tulip-petal"></span>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <!-- Leaves -->
-                        <div class="leaves">
-
-                            <div class="leaf leaf-one"></div>
-                            <div class="leaf leaf-two"></div>
-                            <div class="leaf leaf-three"></div>
-                            <div class="leaf leaf-four"></div>
-
-                        </div>
-
-
-                        <!-- Bouquet wrapping -->
-                        <div class="bouquet-paper">
-
-                            <div class="paper-left"></div>
-                            <div class="paper-right"></div>
-                            <div class="paper-front"></div>
-
-                        </div>
-
-                        <div class="bouquet-ribbon"></div>
-
-                    </div>
-
-                </div>
-
-
-                <p class="bouquet-message">
-                    Every flower reminds me of something beautiful about you. ♡
-                </p>
-
-            </div>
-
-
-            <!-- Love Letter Section -->
-            <section class="letter-section">
-
-                <div class="letter-container">
-
-                    <h2>A Little Message for You 💌</h2>
-
-                    <p>
-                        There's something I want you to read.
-                    </p>
-
-                    <button
-                        id="letter-button"
-                        class="letter-button"
-                        type="button"
-                        aria-controls="letter"
-                        aria-expanded="false"
-                    >
-                        Open My Letter 💗
-                    </button>
-
-
-                    <!-- Envelope and Letter -->
-                    <div
-                        id="letter"
-                        class="letter"
-                        hidden
-                    >
-
-                        <div class="envelope">
-
-                            <div class="envelope-flap"></div>
-
-                            <div class="envelope-body">
-
-                                <div class="letter-paper">
-
-                                    <h3>Dear You,</h3>
-
-                                    <p>
-                                        Just like these roses and tulips,
-                                        I hope your days are filled with
-                                        beauty, warmth, and happiness.
-                                    </p>
-
-                                    <p>
-                                        You deserve all the beautiful
-                                        things this world has to offer.
-                                    </p>
-
-                                    <p>
-                                        Never forget how special you are.
-                                    </p>
-
-                                    <p class="letter-ending">
-                                        With love, always. ♡
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- Music Controls -->
-            <section class="music-section">
-
-                <h2>A Little Music for You 🎵</h2>
-
-                <p>
-                    Listen to a little melody made with love.
-                </p>
-
-                <button
-                    id="music-button"
-                    class="music-button"
-                    type="button"
-                >
-                    ▶ Play Music
-                </button>
-
-            </section>
-
-
-            <!-- Replay -->
-            <div class="replay-section">
-
-                <button
-                    id="restart-button"
-                    class="restart-button"
-                    type="button"
-                >
-                    ↻ Replay the Surprise
-                </button>
-
-            </div>
-
-
-            <footer class="footer">
-
-                <p>
-                    Made with 🌹 roses, 🌷 tulips, and lots of love. ♡
-                </p>
-
-            </footer>
-
-        </section>
-
-    </main>
-
-
-    <!-- Website JavaScript -->
-    <script src="./script.js" defer></script>
+  <script src="./script.js" defer></script>
 
 </body>
 </html>
