@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -22,12 +21,7 @@ body {
   min-height: 100vh;
   color: var(--ink);
   font-family: "DM Sans", sans-serif;
-  background: radial-gradient(
-    ellipse at 50% 5%,
-    #fff 0,
-    #fff7f7 38%,
-    #fcebf1 100%
-  );
+  background: radial-gradient(ellipse at 50% 5%, #fff 0, #fff7f7 38%, #fcebf1 100%);
   overflow-x: hidden;
 }
 
@@ -43,7 +37,6 @@ button {
   opacity: .45;
   background-image: radial-gradient(#e8a8ba 1px, transparent 1px);
   background-size: 34px 34px;
-  mask-image: linear-gradient(to bottom, black, transparent 80%);
 }
 
 .particle-layer {
@@ -98,7 +91,8 @@ h1 em, h2 em {
   font-weight: 500;
 }
 
-.intro-copy, .hero-copy {
+.intro-copy,
+.hero-copy {
   color: var(--muted);
   line-height: 1.75;
   max-width: 460px;
@@ -131,6 +125,8 @@ h1 em, h2 em {
   animation-delay: .8s;
 }
 
+/* GIFT BOX */
+
 .gift-button {
   border: 0;
   background: transparent;
@@ -140,7 +136,6 @@ h1 em, h2 em {
   justify-items: center;
   gap: 20px;
   color: #b96e87;
-  position: relative;
 }
 
 .gift-box {
@@ -263,7 +258,7 @@ h1 em, h2 em {
 }
 
 .intro.opening .gift-box {
-  animation: gift-open .95s cubic-bezier(.2, .8, .2, 1) forwards;
+  animation: gift-open .95s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
 .intro.opening .gift-lid {
@@ -274,6 +269,8 @@ h1 em, h2 em {
 .intro.opening .gift-bow {
   animation: bow-pop .7s ease forwards;
 }
+
+/* MAIN HERO */
 
 .reveal-content {
   animation: rise-in .9s ease both;
@@ -293,40 +290,16 @@ h1 em, h2 em {
   margin: 0;
 }
 
+/* BOUQUET */
+
 .bouquet-card {
   position: relative;
   overflow: hidden;
   border: 1px solid #f5dce4;
   border-radius: 30px;
-  background:
-    radial-gradient(ellipse at 50% 42%, #fff9fc 0%, transparent 58%),
-    linear-gradient(145deg, #fffdfb, #fff0f5 75%, #fce8ef);
+  background: linear-gradient(145deg, #fffdfb, #fff0f4 75%, #fce8ef);
   padding: 26px 18px 25px;
   box-shadow: 0 24px 70px #bd7f9220;
-}
-
-.glow-orb {
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  background: #f7c5d6;
-  filter: blur(50px);
-  opacity: .4;
-  pointer-events: none;
-  animation: soft-glow 5s ease-in-out infinite alternate;
-}
-
-.orb-one {
-  top: 20px;
-  left: 10%;
-}
-
-.orb-two {
-  bottom: 20px;
-  right: 10%;
-  background: #f8d7e5;
-  animation-delay: -2.5s;
 }
 
 .bouquet-scene {
@@ -344,7 +317,6 @@ h1 em, h2 em {
   transform-style: preserve-3d;
   transform: rotateX(7deg) rotateY(-5deg);
   animation: bouquet-float 5s ease-in-out infinite;
-  will-change: transform;
 }
 
 .flower {
@@ -354,24 +326,22 @@ h1 em, h2 em {
   bottom: 38px;
   transform-style: preserve-3d;
   transform-origin: 50% 100%;
+  transform-box: border-box;
+  will-change: rotate;
 }
 
 .stem {
   position: absolute;
   width: 6px;
-  height: 205px;
+  height: 220px;
   left: 42px;
   bottom: 0;
   border-radius: 100%;
-  background: linear-gradient(
-    90deg,
-    #557c5d,
-    #9bb78b 48%,
-    #527856
-  );
-  transform: rotate(var(--stem-tilt));
-  transform-origin: bottom;
+  background: linear-gradient(90deg, #557c5d, #9bb78b 48%, #527856);
+  transform: none !important;
+  transform-origin: bottom center;
   box-shadow: 3px 0 5px #456b4c25;
+  z-index: 1;
 }
 
 .leaf {
@@ -383,6 +353,7 @@ h1 em, h2 em {
   border-radius: 100% 0 100% 0;
   transform-style: preserve-3d;
   box-shadow: inset 0 -2px 3px #416d4a30;
+  z-index: 2;
 }
 
 .leaf-left {
@@ -398,14 +369,17 @@ h1 em, h2 em {
 
 .bloom {
   position: absolute;
-  left: 7px;
+  left: 6px;
   top: 4px;
   width: 78px;
   height: 76px;
   transform-style: preserve-3d;
+  transform-origin: 50% 90%;
   filter: drop-shadow(0 8px 5px #a04c6825);
-  transform-origin: center bottom;
+  z-index: 3;
 }
+
+/* ROSES */
 
 .rose-bloom i {
   position: absolute;
@@ -416,12 +390,7 @@ h1 em, h2 em {
   top: 12px;
   border-radius: 52% 52% 42% 42%;
   transform-origin: 50% 82%;
-  background: linear-gradient(
-    145deg,
-    #ffd1dc 0%,
-    #f18da9 58%,
-    #d45d81 100%
-  );
+  background: linear-gradient(145deg, #ffd1dc 0%, #f18da9 58%, #d45d81 100%);
   box-shadow: inset -4px -3px 7px #b84c6e35;
 }
 
@@ -459,6 +428,8 @@ h1 em, h2 em {
   transform: rotate(28deg) translateZ(25px);
 }
 
+/* TULIPS */
+
 .tulip-bloom {
   top: 10px;
   height: 75px;
@@ -490,12 +461,11 @@ h1 em, h2 em {
   transform: rotate(25deg) translateX(13px) rotateY(18deg);
 }
 
-/* Flower positions */
+/* FLOWER POSITIONS */
 
 .rose-one {
   left: 22px;
   top: 56px;
-  --stem-tilt: -13deg;
   transform: rotate(-13deg) scale(.86);
   z-index: 2;
 }
@@ -503,7 +473,6 @@ h1 em, h2 em {
 .tulip-one {
   left: 92px;
   top: 18px;
-  --stem-tilt: -5deg;
   transform: rotate(-5deg) scale(.92);
   z-index: 3;
 }
@@ -511,7 +480,6 @@ h1 em, h2 em {
 .rose-two {
   left: 133px;
   top: 42px;
-  --stem-tilt: 2deg;
   transform: scale(1.04);
   z-index: 4;
 }
@@ -519,7 +487,6 @@ h1 em, h2 em {
 .tulip-two {
   left: 211px;
   top: 31px;
-  --stem-tilt: 9deg;
   transform: rotate(9deg) scale(.9);
   z-index: 3;
 }
@@ -527,7 +494,6 @@ h1 em, h2 em {
 .rose-three {
   left: 265px;
   top: 77px;
-  --stem-tilt: 16deg;
   transform: rotate(16deg) scale(.82);
   z-index: 2;
 }
@@ -535,7 +501,6 @@ h1 em, h2 em {
 .tulip-three {
   left: 48px;
   top: 111px;
-  --stem-tilt: -20deg;
   transform: rotate(-20deg) scale(.72);
   z-index: 1;
 }
@@ -543,12 +508,11 @@ h1 em, h2 em {
 .rose-four {
   left: 205px;
   top: 118px;
-  --stem-tilt: 12deg;
   transform: rotate(12deg) scale(.72);
   z-index: 2;
 }
 
-/* Different flower colors */
+/* FLOWER COLORS */
 
 .rose-two .rose-bloom i {
   background: linear-gradient(145deg, #ffe0d0, #f4a18e 58%, #d56d70);
@@ -566,7 +530,7 @@ h1 em, h2 em {
   background: linear-gradient(100deg, #f5d8ec, #c58cc5 60%, #a76da9);
 }
 
-/* Bouquet wrapping */
+/* BOUQUET WRAPPER */
 
 .bouquet-wrap {
   position: absolute;
@@ -576,12 +540,7 @@ h1 em, h2 em {
   height: 155px;
   z-index: 8;
   clip-path: polygon(8% 0, 92% 0, 70% 100%, 30% 100%);
-  background: linear-gradient(
-    105deg,
-    #f3d4c9,
-    #fff0e8 42%,
-    #e9bcb7 100%
-  );
+  background: linear-gradient(105deg, #f3d4c9, #fff0e8 42%, #e9bcb7 100%);
   filter: drop-shadow(0 12px 9px #a65b6630);
   transform: rotate(-2deg);
 }
@@ -592,13 +551,7 @@ h1 em, h2 em {
   right: 0;
   bottom: 0;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 48%,
-    #fff8f1 49%,
-    #fff8f1 53%,
-    transparent 54%
-  );
+  background: linear-gradient(90deg, transparent 48%, #fff8f1 49%, #fff8f1 53%, transparent 54%);
 }
 
 .wrap-ribbon {
@@ -619,106 +572,7 @@ h1 em, h2 em {
   height: 24px;
   border-radius: 50%;
   background: #bd7189;
-  box-shadow:
-    -17px 0 0 -4px #e6a5b7,
-    17px 0 0 -4px #e6a5b7;
-}
-
-/* Cute blooming animation */
-
-.bouquet.blooming .flower {
-  animation: flower-sway 4.5s ease-in-out infinite;
-  transform-origin: 50% 100%;
-}
-
-.bouquet.blooming .flower:nth-child(2) {
-  animation-delay: -1.1s;
-}
-
-.bouquet.blooming .flower:nth-child(3) {
-  animation-delay: -2s;
-}
-
-.bouquet.blooming .flower:nth-child(4) {
-  animation-delay: -.7s;
-}
-
-.bouquet.blooming .flower:nth-child(5) {
-  animation-delay: -1.7s;
-}
-
-.bouquet.blooming .flower:nth-child(6) {
-  animation-delay: -.4s;
-}
-
-.bouquet.blooming .flower:nth-child(7) {
-  animation-delay: -2.4s;
-}
-
-.bouquet.blooming .bloom {
-  animation: flower-open 1.8s cubic-bezier(.2, .75, .25, 1) both;
-}
-
-.bouquet.blooming .flower:nth-child(1) .bloom {
-  animation-delay: .15s;
-}
-
-.bouquet.blooming .flower:nth-child(2) .bloom {
-  animation-delay: .35s;
-}
-
-.bouquet.blooming .flower:nth-child(3) .bloom {
-  animation-delay: .55s;
-}
-
-.bouquet.blooming .flower:nth-child(4) .bloom {
-  animation-delay: .75s;
-}
-
-.bouquet.blooming .flower:nth-child(5) .bloom {
-  animation-delay: .95s;
-}
-
-.bouquet.blooming .flower:nth-child(6) .bloom {
-  animation-delay: 1.15s;
-}
-
-.bouquet.blooming .flower:nth-child(7) .bloom {
-  animation-delay: 1.35s;
-}
-
-@keyframes flower-open {
-  0% {
-    scale: .12;
-    opacity: .2;
-    filter: blur(3px);
-  }
-
-  65% {
-    scale: 1.12;
-    opacity: 1;
-    filter: blur(0);
-  }
-
-  82% {
-    scale: .96;
-  }
-
-  100% {
-    scale: 1;
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@keyframes flower-sway {
-  0%, 100% {
-    rotate: -1.5deg;
-  }
-
-  50% {
-    rotate: 2deg;
-  }
+  box-shadow: -17px 0 0 -4px #e6a5b7, 17px 0 0 -4px #e6a5b7;
 }
 
 .bouquet-caption {
@@ -749,19 +603,41 @@ h1 em, h2 em {
   border-radius: 999px;
   padding: 11px 18px;
   font-size: .82rem;
-  transition: background .25s ease, transform .25s ease;
+  transition: .2s;
 }
 
 .soft-button:hover {
   background: #fce4eb;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-.bouquet.blooming {
-  animation: bouquet-float 5s ease-in-out infinite;
+/* CONNECTED FLOWER ANIMATION */
+
+.bouquet.blooming .flower {
+  animation: connected-flower-sway 3.8s ease-in-out infinite;
 }
 
-/* Envelope and letter */
+.bouquet.blooming .flower:nth-child(1) { animation-delay: -.3s; }
+.bouquet.blooming .flower:nth-child(2) { animation-delay: -1.1s; }
+.bouquet.blooming .flower:nth-child(3) { animation-delay: -1.8s; }
+.bouquet.blooming .flower:nth-child(4) { animation-delay: -.7s; }
+.bouquet.blooming .flower:nth-child(5) { animation-delay: -2.2s; }
+.bouquet.blooming .flower:nth-child(6) { animation-delay: -1.4s; }
+.bouquet.blooming .flower:nth-child(7) { animation-delay: -2.7s; }
+
+.bouquet.blooming .rose-bloom,
+.bouquet.blooming .tulip-bloom {
+  animation: connected-petal-open 1.15s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.bouquet.blooming .flower:nth-child(2) .bloom { animation-delay: .08s; }
+.bouquet.blooming .flower:nth-child(3) .bloom { animation-delay: .16s; }
+.bouquet.blooming .flower:nth-child(4) .bloom { animation-delay: .24s; }
+.bouquet.blooming .flower:nth-child(5) .bloom { animation-delay: .32s; }
+.bouquet.blooming .flower:nth-child(6) .bloom { animation-delay: .4s; }
+.bouquet.blooming .flower:nth-child(7) .bloom { animation-delay: .48s; }
+
+/* LOVE LETTER */
 
 .letter-section {
   padding: 100px 10px 65px;
@@ -920,7 +796,7 @@ h1 em, h2 em {
   padding: 8px 0;
 }
 
-/* Music controls */
+/* MUSIC */
 
 .footer {
   text-align: center;
@@ -939,12 +815,6 @@ h1 em, h2 em {
   gap: 10px;
   min-width: 220px;
   justify-content: center;
-  transition: background .25s ease, transform .25s ease;
-}
-
-.music-button:hover {
-  background: #fcebf1;
-  transform: translateY(-2px);
 }
 
 .music-icon {
@@ -973,13 +843,8 @@ h1 em, h2 em {
   animation: equalize .7s ease-in-out infinite alternate;
 }
 
-.music-bars i:nth-child(2) {
-  animation-delay: .2s;
-}
-
-.music-bars i:nth-child(3) {
-  animation-delay: .4s;
-}
+.music-bars i:nth-child(2) { animation-delay: .2s; }
+.music-bars i:nth-child(3) { animation-delay: .4s; }
 
 .footer p {
   font-size: .75rem;
@@ -987,7 +852,7 @@ h1 em, h2 em {
   margin: 23px 0 8px;
 }
 
-/* Falling petals and floating hearts */
+/* PARTICLES */
 
 .petal,
 .float-heart {
@@ -1011,7 +876,11 @@ h1 em, h2 em {
   animation: heart-rise 2.3s ease-out forwards;
 }
 
-/* Animations */
+[hidden] {
+  display: none !important;
+}
+
+/* ANIMATIONS */
 
 @keyframes twinkle {
   50% {
@@ -1025,7 +894,6 @@ h1 em, h2 em {
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1037,22 +905,26 @@ h1 em, h2 em {
     translate: 0 0;
     rotate: 0deg;
   }
-
   50% {
     translate: 0 -8px;
     rotate: 1deg;
   }
 }
 
+@keyframes connected-flower-sway {
+  0%, 100% { rotate: -1.2deg; }
+  50% { rotate: 1.8deg; }
+}
+
+@keyframes connected-petal-open {
+  0% { scale: .78; }
+  65% { scale: 1.08; }
+  100% { scale: 1; }
+}
+
 @keyframes gift-open {
-  0% {
-    transform: scale(1);
-  }
-
-  45% {
-    transform: scale(1.12) rotate(4deg);
-  }
-
+  0% { transform: scale(1); }
+  45% { transform: scale(1.12) rotate(4deg); }
   100% {
     transform: scale(.2) translateY(-160px);
     opacity: 0;
@@ -1075,95 +947,55 @@ h1 em, h2 em {
 
 @keyframes fall {
   to {
-    transform: translate3d(var(--drift), 110vh, 0) rotate(720deg);
+    transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(650deg);
     opacity: 0;
   }
 }
 
 @keyframes heart-rise {
   0% {
-    transform: translateY(0) scale(.5);
+    transform: translateY(0) scale(.7) rotate(-10deg);
     opacity: 0;
   }
-
-  20% {
-    opacity: 1;
-  }
-
+  20% { opacity: 1; }
   100% {
-    transform: translateY(-180px) scale(1.5);
+    transform: translateY(-190px) scale(1.25) rotate(20deg);
     opacity: 0;
   }
 }
 
 @keyframes equalize {
-  to {
-    height: 14px;
-  }
+  from { height: 4px; }
+  to { height: 15px; }
 }
 
-@keyframes soft-glow {
-  from {
-    opacity: .3;
-    scale: .95;
-  }
-
-  to {
-    opacity: .65;
-    scale: 1.08;
-  }
-}
-
-/* Mobile layout */
-
-[hidden] {
-  display: none !important;
-}
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
   main {
-    width: min(calc(100% - 22px), 980px);
-  }
-
-  .intro {
-    padding-top: 40px;
-  }
-
-  .sparkle-a {
-    left: 5%;
-    top: 18%;
-  }
-
-  .sparkle-b {
-    right: 6%;
-    top: 26%;
+    width: min(calc(100% - 20px), 980px);
   }
 
   .bouquet-card {
     padding: 18px 8px 22px;
-    border-radius: 22px;
   }
 
   .bouquet-scene {
-    height: 320px;
+    height: 330px;
     overflow: hidden;
   }
 
   .bouquet {
-    transform: scale(.83) rotateX(7deg) rotateY(-5deg);
-    transform-origin: center;
-  }
-
-  .bouquet-caption {
-    font-size: 1rem;
+    transform: scale(.82) rotateX(7deg) rotateY(-5deg);
   }
 
   .letter-section {
     padding-top: 75px;
   }
-}
 
-/* Accessibility */
+  .sparkle-a { left: 7%; }
+  .sparkle-b { right: 8%; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1174,5 +1006,10 @@ h1 em, h2 em {
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
-}
 
+  .bouquet.blooming .flower,
+  .bouquet.blooming .rose-bloom,
+  .bouquet.blooming .tulip-bloom {
+    animation: none !important;
+  }
+}
