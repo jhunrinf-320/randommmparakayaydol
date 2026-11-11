@@ -1,399 +1,509 @@
 
-const $ = (id) => document.getElementById(id);
+"use strict";
 
-const intro = $("intro");
-const reveal = $("reveal-content");
-const giftButton = $("open-gift");
-const particleLayer = $("particle-layer");
-const bouquet = $("bouquet");
-const letterButton = $("letter-button");
-const letter = $("letter");
-const envelopeHint = $("envelope-hint");
+document.addEventListener("DOMContentLoaded", () => {
 
+  const $ = (id) => document.getElementById(id);
 
-// FLOATING HEARTS
+  const intro = $("intro");
+  const reveal = $("reveal-content");
+  const giftButton = $("open-gift");
+  const particleLayer = $("particle-layer");
+  const bouquet = $("bouquet");
+  const letterButton = $("letter-button");
+  const letter = $("letter");
+  const envelopeHint = $("envelope-hint");
 
-function burstHearts(count = 22) {
-  const symbols = ["♡", "♥", "❤"];
+  // Check required HTML elements
+  const requiredElements = [
+    intro,
+    reveal,
+    giftButton,
+    particleLayer,
+    bouquet,
+    letterButton,
+    letter,
+    envelopeHint
+  ];
 
-  for (let i = 0; i < count; i++) {
-    const heart = document.createElement("span");
-
-    heart.className = "float-heart";
-
-    heart.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
-
-    heart.style.left = `${8 + Math.random() * 84}%`;
-    heart.style.top = `${45 + Math.random() * 35}%`;
-    heart.style.animationDelay = `${Math.random() * .45}s`;
-    heart.style.fontSize = `${13 + Math.random() * 17}px`;
-
-    particleLayer.appendChild(heart);
-
-    heart.addEventListener(
-      "animationend",
-      () => heart.remove(),
-      { once: true }
+  if (requiredElements.some(element => !element)) {
+    console.error(
+      "Website setup error: One or more required HTML elements are missing."
     );
-  }
-}
-
-
-// FALLING PETALS
-
-function makePetal() {
-
-  if (
-    document.hidden ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
     return;
   }
 
-  const petal = document.createElement("span");
+  // FLOATING HEARTS
 
-  petal.className = "petal";
+  function burstHearts(count = 22) {
 
-  petal.style.left = `${Math.random() * 100}%`;
+    const symbols = ["♡", "♥", "❤"];
 
-  petal.style.setProperty(
-    "--drift",
-    `${-90 + Math.random() * 180}px`
-  );
+    for (let i = 0; i < count; i++) {
 
-  petal.style.animationDuration =
-    `${7 + Math.random() * 7}s`;
+      const heart = document.createElement("span");
 
-  petal.style.animationDelay =
-    `${Math.random() * 2}s`;
+      heart.className = "float-heart";
 
-  particleLayer.appendChild(petal);
+      heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
 
-  petal.addEventListener(
-    "animationend",
-    () => petal.remove(),
-    { once: true }
-  );
-}
+      heart.style.left = `${8 + Math.random() * 84}%`;
+      heart.style.top = `${45 + Math.random() * 35}%`;
+      heart.style.animationDelay = `${Math.random() * .45}s`;
+      heart.style.fontSize = `${13 + Math.random() * 17}px`;
 
-setInterval(makePetal, 650);
+      particleLayer.appendChild(heart);
 
+      heart.addEventListener(
+        "animationend",
+        () => heart.remove(),
+        { once: true }
+      );
 
-// OPENING GIFT ANIMATION
-
-giftButton.addEventListener("click", () => {
-
-  if (giftButton.disabled) return;
-
-  giftButton.disabled = true;
-
-  intro.classList.add("opening");
-
-  burstHearts(28);
-
-  window.setTimeout(() => {
-
-    intro.hidden = true;
-    reveal.hidden = false;
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-    for (let i = 0; i < 16; i++) {
-      window.setTimeout(makePetal, i * 90);
     }
 
-  }, 850);
-
-});
-
-
-// MAKE THE BOUQUET BLOOM
-
-$("bloom-button").addEventListener("click", () => {
-
-  bouquet.classList.remove("blooming");
-
-  void bouquet.offsetWidth;
-
-  bouquet.classList.add("blooming");
-
-  burstHearts(12);
-
-});
-
-
-// SEND A HEART
-
-$("heart-button").addEventListener("click", () => {
-  burstHearts(30);
-});
-
-
-// OPEN LOVE LETTER
-
-letterButton.addEventListener("click", () => {
-
-  const opening =
-    !letterButton.classList.contains("open");
-
-  letterButton.classList.toggle("open", opening);
-
-  letterButton.setAttribute(
-    "aria-expanded",
-    String(opening)
-  );
-
-  letter.hidden = !opening;
-
-  envelopeHint.textContent = opening
-    ? "A little something, from the heart ♡"
-    : "Tap the envelope to open your letter";
-
-  if (opening) {
-
-    setTimeout(() => {
-
-      letter.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-    }, 350);
-
-    burstHearts(9);
   }
 
-});
 
+  // FALLING PETALS
 
-// CLOSE LOVE LETTER
+  function makePetal() {
 
-$("close-letter").addEventListener("click", () => {
+    if (
+      document.hidden ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
 
-  letter.hidden = true;
+    const petal = document.createElement("span");
 
-  letterButton.classList.remove("open");
+    petal.className = "petal";
 
-  letterButton.setAttribute(
-    "aria-expanded",
-    "false"
-  );
+    petal.style.left = `${Math.random() * 100}%`;
 
-  envelopeHint.textContent =
-    "Tap the envelope to open your letter";
+    petal.style.setProperty(
+      "--drift",
+      `${-90 + Math.random() * 180}px`
+    );
 
-});
+    petal.style.animationDuration =
+      `${7 + Math.random() * 7}s`;
 
+    petal.style.animationDelay =
+      `${Math.random() * 2}s`;
 
-// ORIGINAL BACKGROUND MELODY
-// Generated using the browser's Web Audio API.
+    particleLayer.appendChild(petal);
 
-let audioContext = null;
-let melodyTimer = null;
-let noteIndex = 0;
-let masterGain = null;
-
-const melody = [
-
-  [523.25, .34],
-  [659.25, .34],
-  [783.99, .5],
-  [659.25, .34],
-
-  [587.33, .34],
-  [698.46, .34],
-  [880.00, .55],
-  [698.46, .4],
-
-  [523.25, .34],
-  [659.25, .34],
-  [783.99, .5],
-  [1046.5, .65],
-
-  [880.00, .34],
-  [783.99, .34],
-  [659.25, .65],
-  [587.33, .65]
-
-];
-
-
-// PLAY INDIVIDUAL NOTES
-
-function playNote(frequency, duration) {
-
-  if (!audioContext || !masterGain) return;
-
-  const now = audioContext.currentTime;
-
-  const osc = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-
-  osc.type = "sine";
-
-  osc.frequency.setValueAtTime(
-    frequency,
-    now
-  );
-
-  gain.gain.setValueAtTime(
-    .0001,
-    now
-  );
-
-  gain.gain.exponentialRampToValueAtTime(
-    .075,
-    now + .035
-  );
-
-  gain.gain.exponentialRampToValueAtTime(
-    .0001,
-    now + duration
-  );
-
-  osc.connect(gain);
-  gain.connect(masterGain);
-
-  osc.start(now);
-  osc.stop(now + duration + .03);
-
-}
-
-
-// START MUSIC
-
-function startMusic() {
-
-  const AudioCtx =
-    window.AudioContext ||
-    window.webkitAudioContext;
-
-  if (!AudioCtx) {
-
-    $("music-label").textContent =
-      "Audio isn't supported here";
-
-    return;
-  }
-
-  audioContext = audioContext || new AudioCtx();
-
-  audioContext.resume();
-
-  masterGain =
-    masterGain || audioContext.createGain();
-
-  masterGain.gain.value = .55;
-
-  masterGain.connect(audioContext.destination);
-
-  playNote(
-    melody[noteIndex][0],
-    melody[noteIndex][1]
-  );
-
-  noteIndex = (noteIndex + 1) % melody.length;
-
-  melodyTimer = window.setInterval(() => {
-
-    const [frequency, duration] = melody[noteIndex];
-
-    playNote(frequency, duration);
-
-    noteIndex = (noteIndex + 1) % melody.length;
-
-  }, 390);
-
-  $("music-button").classList.add("playing");
-
-  $("music-button").setAttribute(
-    "aria-pressed",
-    "true"
-  );
-
-  $("music-label").textContent =
-    "Pause the little melody";
-
-}
-
-
-// STOP MUSIC
-
-function stopMusic() {
-
-  window.clearInterval(melodyTimer);
-
-  melodyTimer = null;
-
-  if (masterGain && audioContext) {
-
-    masterGain.gain.setTargetAtTime(
-      .0001,
-      audioContext.currentTime,
-      .06
+    petal.addEventListener(
+      "animationend",
+      () => petal.remove(),
+      { once: true }
     );
 
   }
 
-  $("music-button").classList.remove("playing");
-
-  $("music-button").setAttribute(
-    "aria-pressed",
-    "false"
-  );
-
-  $("music-label").textContent =
-    "Play a little melody";
-
-}
+  const petalInterval = window.setInterval(makePetal, 650);
 
 
-// MUSIC BUTTON
+  // OPENING GIFT
 
-$("music-button").addEventListener("click", () => {
+  giftButton.addEventListener("click", () => {
 
-  if (melodyTimer) {
-    stopMusic();
-  } else {
-    startMusic();
+    if (giftButton.disabled) return;
+
+    giftButton.disabled = true;
+
+    intro.classList.add("opening");
+
+    burstHearts(28);
+
+    window.setTimeout(() => {
+
+      intro.hidden = true;
+      reveal.hidden = false;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      for (let i = 0; i < 16; i++) {
+        window.setTimeout(makePetal, i * 90);
+      }
+
+    }, 850);
+
+  });
+
+
+  // MAKE BOUQUET BLOOM
+
+  const bloomButton = $("bloom-button");
+
+  if (bloomButton) {
+
+    bloomButton.addEventListener("click", () => {
+
+      bouquet.classList.remove("blooming");
+
+      void bouquet.offsetWidth;
+
+      bouquet.classList.add("blooming");
+
+      burstHearts(12);
+
+    });
+
   }
 
-});
+
+  // SEND HEART
+
+  const heartButton = $("heart-button");
+
+  if (heartButton) {
+
+    heartButton.addEventListener("click", () => {
+      burstHearts(30);
+    });
+
+  }
 
 
-// REPLAY THE SURPRISE
+  // OPEN LOVE LETTER
 
-$("restart-button").addEventListener("click", () => {
+  letterButton.addEventListener("click", () => {
 
-  stopMusic();
+    const opening =
+      !letterButton.classList.contains("open");
 
-  reveal.hidden = true;
+    letterButton.classList.toggle("open", opening);
 
-  intro.hidden = false;
+    letterButton.setAttribute(
+      "aria-expanded",
+      String(opening)
+    );
 
-  intro.classList.remove("opening");
+    letter.hidden = !opening;
 
-  giftButton.disabled = false;
+    envelopeHint.textContent = opening
+      ? "A little something, from the heart ♡"
+      : "Tap the envelope to open your letter";
 
-  letter.hidden = true;
+    if (opening) {
 
-  letterButton.classList.remove("open");
+      window.setTimeout(() => {
 
-  letterButton.setAttribute(
-    "aria-expanded",
-    "false"
-  );
+        letter.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
-  envelopeHint.textContent =
-    "Tap the envelope to open your letter";
+      }, 350);
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+      burstHearts(9);
+
+    }
+
   });
+
+
+  // CLOSE LOVE LETTER
+
+  const closeLetter = $("close-letter");
+
+  if (closeLetter) {
+
+    closeLetter.addEventListener("click", () => {
+
+      letter.hidden = true;
+
+      letterButton.classList.remove("open");
+
+      letterButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      envelopeHint.textContent =
+        "Tap the envelope to open your letter";
+
+    });
+
+  }
+
+
+  // ORIGINAL BACKGROUND MELODY
+
+  let audioContext = null;
+  let melodyTimer = null;
+  let noteIndex = 0;
+  let masterGain = null;
+
+  const melody = [
+
+    [523.25, .34],
+    [659.25, .34],
+    [783.99, .5],
+    [659.25, .34],
+
+    [587.33, .34],
+    [698.46, .34],
+    [880.00, .55],
+    [698.46, .4],
+
+    [523.25, .34],
+    [659.25, .34],
+    [783.99, .5],
+    [1046.5, .65],
+
+    [880.00, .34],
+    [783.99, .34],
+    [659.25, .65],
+    [587.33, .65]
+
+  ];
+
+
+  // PLAY INDIVIDUAL NOTES
+
+  function playNote(frequency, duration) {
+
+    if (!audioContext || !masterGain) return;
+
+    const now = audioContext.currentTime;
+
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    osc.type = "sine";
+
+    osc.frequency.setValueAtTime(
+      frequency,
+      now
+    );
+
+    gain.gain.setValueAtTime(.0001, now);
+
+    gain.gain.exponentialRampToValueAtTime(
+      .075,
+      now + .035
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .0001,
+      now + duration
+    );
+
+    osc.connect(gain);
+    gain.connect(masterGain);
+
+    osc.start(now);
+    osc.stop(now + duration + .03);
+
+  }
+
+
+  // START MUSIC
+
+  async function startMusic() {
+
+    const AudioCtx =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    const musicLabel = $("music-label");
+    const musicButton = $("music-button");
+
+    if (!AudioCtx) {
+
+      musicLabel.textContent =
+        "Audio isn't supported here";
+
+      return;
+
+    }
+
+    try {
+
+      audioContext = audioContext || new AudioCtx();
+
+      if (audioContext.state === "suspended") {
+        await audioContext.resume();
+      }
+
+      if (!masterGain) {
+
+        masterGain = audioContext.createGain();
+
+        masterGain.gain.value = .55;
+
+        masterGain.connect(audioContext.destination);
+
+      } else {
+
+        masterGain.gain.cancelScheduledValues(
+          audioContext.currentTime
+        );
+
+        masterGain.gain.setTargetAtTime(
+          .55,
+          audioContext.currentTime,
+          .05
+        );
+
+      }
+
+      playNote(
+        melody[noteIndex][0],
+        melody[noteIndex][1]
+      );
+
+      noteIndex = (noteIndex + 1) % melody.length;
+
+      melodyTimer = window.setInterval(() => {
+
+        const [frequency, duration] = melody[noteIndex];
+
+        playNote(frequency, duration);
+
+        noteIndex = (noteIndex + 1) % melody.length;
+
+      }, 390);
+
+      musicButton.classList.add("playing");
+
+      musicButton.setAttribute(
+        "aria-pressed",
+        "true"
+      );
+
+      musicLabel.textContent =
+        "Pause the little melody";
+
+    } catch (error) {
+
+      console.error("Music error:", error);
+
+      musicLabel.textContent =
+        "Unable to play music";
+
+    }
+
+  }
+
+
+  // STOP MUSIC
+
+  function stopMusic() {
+
+    if (melodyTimer !== null) {
+
+      window.clearInterval(melodyTimer);
+
+      melodyTimer = null;
+
+    }
+
+    if (masterGain && audioContext) {
+
+      masterGain.gain.cancelScheduledValues(
+        audioContext.currentTime
+      );
+
+      masterGain.gain.setTargetAtTime(
+        .0001,
+        audioContext.currentTime,
+        .06
+      );
+
+    }
+
+    const musicButton = $("music-button");
+    const musicLabel = $("music-label");
+
+    if (musicButton) {
+
+      musicButton.classList.remove("playing");
+
+      musicButton.setAttribute(
+        "aria-pressed",
+        "false"
+      );
+
+    }
+
+    if (musicLabel) {
+
+      musicLabel.textContent =
+        "Play a little melody";
+
+    }
+
+  }
+
+
+  // MUSIC BUTTON
+
+  const musicButton = $("music-button");
+
+  if (musicButton) {
+
+    musicButton.addEventListener("click", () => {
+
+      if (melodyTimer !== null) {
+        stopMusic();
+      } else {
+        startMusic();
+      }
+
+    });
+
+  }
+
+
+  // REPLAY SURPRISE
+
+  const restartButton = $("restart-button");
+
+  if (restartButton) {
+
+    restartButton.addEventListener("click", () => {
+
+      stopMusic();
+
+      reveal.hidden = true;
+
+      intro.hidden = false;
+
+      intro.classList.remove("opening");
+
+      giftButton.disabled = false;
+
+      letter.hidden = true;
+
+      letterButton.classList.remove("open");
+
+      letterButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      envelopeHint.textContent =
+        "Tap the envelope to open your letter";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  }
+
+
+  console.log("🌷 Rose & Tulip Bouquet website loaded successfully!");
 
 });
